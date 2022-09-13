@@ -1,0 +1,20 @@
+.title{
+    text-align: center;
+    font-size: 30px;
+}
+
+.filters{
+    width: 90%;
+    display: inline;
+    >span{
+        font-size: 20px;
+    }
+    >div{
+        display: inline-block;
+        margin: 0 10px;
+    }
+}
+
+.update{
+    display: inline;
+}

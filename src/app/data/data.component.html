@@ -1,0 +1,31 @@
+<div class="title">Отображение данных</div>
+<div>
+    <div class="filters">
+        <span>Фильтры: </span>
+        <div>Отчетный период: <p-calendar [(ngModel)]="filterFields.range" [selectionMode]="'range'" [showClear]="true" (onSelect)="filterReports()" (onClear)="filterReports()"></p-calendar></div>
+        <div>Точка продажи: <p-dropdown [options]="pointsOfSale" [(ngModel)]="filterFields.pos" [placeholder]="'Не выбрана'" [showClear]="true"(onChange)="filterReports()"></p-dropdown></div>
+        <div>Агент: <p-multiSelect [options]="agents" [(ngModel)]="filterFields.agents" optionLabel="name" (onChange)="filterReports()" (onClear)="filterReports()"></p-multiSelect></div>
+        <div>Источник данных: <p-dropdown [options]="dtss" [(ngModel)]="filterFields.dts" [placeholder]="'Не выбран'" [showClear]="true" (onChange)="filterReports()"></p-dropdown></div>
+    </div>
+    <!-- <div class="update"><button (click)="updateColumns()">Обновить колонки</button></div> -->
+    <div class="update"><button pButton type="button" label="Обновить колонки" (click)="updateColumns()"></button></div>
+</div>
+
+<div>
+    <p-table [columns]="columns" [value]="filteredSaleReports" [reorderableColumns]="true" [resizableColumns]="true">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns" pReorderableColumn pResizableColumn>
+                    {{col.header}}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-saleReports let-columns="columns">
+            <tr>
+                <td *ngFor="let col of columns" class="ui-resizable-column">
+                        {{saleReports[col.field]|codeName}}
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

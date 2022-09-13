@@ -1,0 +1,5 @@
+<div class="title">Отчеты за день</div>
+<div>Отчетный период: <p-calendar [(ngModel)]="reportPeriod" [selectionMode]="'range'" [showClear]="true" (onSelect)="filterSaleReports()" (onClear)="filterSaleReports()"></p-calendar></div>
+<div>
+    <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
+</div>
