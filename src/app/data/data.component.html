@@ -12,7 +12,7 @@
 </div>
 
 <div>
-    <p-table [columns]="columns" [value]="filteredSaleReports" [reorderableColumns]="true" [resizableColumns]="true">
+    <p-table [columns]="columns" [value]="filteredSaleReports" [reorderableColumns]="true" [resizableColumns]="true" styleClass="p-datatable-gridlines">
         <ng-template pTemplate="header" let-columns>
             <tr>
                 <th *ngFor="let col of columns" pReorderableColumn pResizableColumn>
